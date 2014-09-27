@@ -4,6 +4,7 @@ import zipfile
 import json
 import time
 import shutil
+import re
 
 
 class ModPack:
@@ -180,9 +181,10 @@ def main():
 
     if path.exists(path.join("input", "mods-fml")):
         for file in listdir(path.join("input", "mods-fml")):
-            mod = ModInfo()
-            mod.load_from_fml(path.join(path.join("input", "mods-fml"), file))
-            modpack.mods.append(mod)
+	    if re.match(".*\\.(?:jar|zip)", file, re.I):
+                mod = ModInfo()
+                mod.load_from_fml(path.join(path.join("input", "mods-fml"), file))
+                modpack.mods.append(mod)
     modpack.mcversion = "1.6.4"
 
     if path.exists(path.join("input","libraries.txt")):
