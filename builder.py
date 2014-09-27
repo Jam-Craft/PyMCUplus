@@ -1,5 +1,3 @@
-
-from enum import Enum
 import hashlib
 from os import path, listdir, mkdir, walk
 import zipfile
@@ -137,7 +135,7 @@ class ModInfo:
         return entry
 
 
-class ModType(Enum):
+class ModType:
     classpath = 1
     fml = 2
     litemod = 3
