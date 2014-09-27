@@ -181,7 +181,7 @@ def main():
 
     if path.exists(path.join("input", "mods-fml")):
         for file in listdir(path.join("input", "mods-fml")):
-	    if re.match(".*\\.(?:jar|zip)", file, re.I):
+            if re.match(".*\\.(?:jar|zip)", file, re.I):
                 mod = ModInfo()
                 mod.load_from_fml(path.join(path.join("input", "mods-fml"), file))
                 modpack.mods.append(mod)
